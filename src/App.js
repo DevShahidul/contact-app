@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Header from './Component/Layout/Header';
+import Contacts from './Component/Contacts/Contacts';
+import { Provider } from './Context';
+import AddContact from './Component/Contacts/AddContact';
+//import AddContactRef from './Component/Contacts/AddContact-ref';
+
+config.autoA11y = true;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <div className="App">
+        <Header brand="Contact Manager"/>
+        
+        <div className="container mt-5 pb-5">
+          <AddContact/>
+          <Contacts/>
+        </div>
+      </div>
+    </Provider>
   );
 }
 
